@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form> 
+
+                <p:growl id="form1" showDetail="true"/> 
+                <p:dataTable id="setor" emptyMessage="Não Foram Encontrados Registros" value="${Mbsetor.listaSetores}"
+                             var="setor"   >
+
+
+
+                    
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                    <p:column headerText="CNPJ" filterBy="${setor.nomesetor}" >
+
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Nome" />
+                        </f:facet>    
+
+                              <h:outputText value="${setor.nomesetor}" />
+
+                    </p:column>
+
+
+
+                    <p:column headerText="CNPJ" filterBy="${setor.localsetor}" >
+
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Local" />
+                        </f:facet>    
+
+                              <h:outputText value="${setor.localsetor}" />
+
+                    </p:column>
+
+
+                    <p:column headerText="Setor" filterBy="${setor.departamento.nomedepto}"  >
+
+
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Setor" />
+                        </f:facet>
+                        
+                        <h:outputText value="${setor.departamento.nomedepto}" />
+
+                    </p:column>
+
+
+
+
+
+                </p:dataTable>
+                
+                
+                
+                <p:panel header="Exportar Conteudo">  
+                    <h:commandLink>  
+                        
+                        <p:graphicImage value="excel.png" />  
+                        <p:dataExporter type="xls" target="setor" fileName="setor" />  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="pdf.png" />  
+                        <p:dataExporter type="pdf" target="setor" fileName="setor" />  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="csv.png" />  
+                        <p:dataExporter type="csv" target="setor" fileName="setor" pageOnly="true"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="xml.png"  />  
+                        <p:dataExporter type="xml" target="setor" fileName="setor"  />  
+                    </h:commandLink>  
+                </p:panel>  
+
+
+
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>

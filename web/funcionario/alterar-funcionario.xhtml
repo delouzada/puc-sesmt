@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form>
+
+                <p:growl id="form1" showDetail="true"/> 
+
+                <p:panel header="Alteração de funcionário" style="margin-bottom:10px;">
+
+                    <h:panelGrid columns="4">
+
+                        <h:outputLabel for="matricula"  value="Matricula: "></h:outputLabel>
+                        <p:inputText value="${MbFuncionario.funcionario.matricula}" id="matricula" label="matricula" required="true" requiredMessage="campo obrigatório" validatorMessage="Exemplo: 123456" >
+
+                            <f:validateLength minimum="2" />
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="matriculatooltip" style="cursor: help;"/>
+
+
+                        <p:message for="matricula"/>
+
+
+
+                        <h:outputLabel for="nome"  value="Nome: " ></h:outputLabel>
+
+                        <p:inputText value="${MbFuncionario.funcionario.nome}" id="nome" required="true" label="nome" requiredMessage="campo obrigatório"   >
+
+                            <f:validateLength minimum="3"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="nometooltip" style="cursor: help;"/>
+
+
+                        <p:message for="nome"></p:message>
+
+
+                        <h:outputLabel for="cargo"  value="Cargo: "></h:outputLabel>
+
+                        <p:inputText value="${MbFuncionario.funcionario.cargo}" id="cargo" required="true" label="cargo" requiredMessage="campo obrigatório">
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="cargotooltip" style="cursor: help;"/>
+
+                        <p:message for="cargo"></p:message>
+
+                        <h:outputLabel for="carga horaria"  value="Carga Horaria: "></h:outputLabel>
+
+                        <p:inputMask value="${MbFuncionario.funcionario.cargahoraria}" id="cargahoraria"  label="cargahoraria"  required="true" requiredMessage="campo obrigatório" mask="9*h" >
+
+                            <f:validateLength minimum="1" maximum="4"/>
+
+                        </p:inputMask>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="cargahorariatooltip" style="cursor: help;"/>
+
+                        <p:message for="cargahoraria"></p:message>
+
+
+                        <h:outputLabel for="carga horaria"  value="Ramal: "></h:outputLabel>
+
+                        <p:inputText value="${MbFuncionario.funcionario.ramal}" id="ramal" required="true" maxlength="13" requiredMessage="campo obrigatório" label="ramal" >
+
+                            <f:validateLength minimum="8"/>
+
+                        </p:inputText>
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="ramaltooltip" style="cursor: help;"/>
+
+
+                        <p:message for="ramal"></p:message>
+
+
+                        <h:outputLabel for="carga horaria"  value="Função: "></h:outputLabel>
+
+                        <p:inputText value="${MbFuncionario.funcionario.funcao}" id="funcao" required="true"  requiredMessage="campo obrigatório" label="funcao">
+
+                            <f:validateLength minimum="2" />    
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="funcaotooltip" style="cursor: help;"/>
+
+                        <p:message for="funcao"></p:message>
+
+
+                        <h:outputLabel for="email"  value="E-mail: "></h:outputLabel>
+
+                        <p:inputText value="${MbFuncionario.funcionario.email}" id="email" required="true"  requiredMessage="Campo obrigatório" validatorMessage="Exemplo: xxx@xxx.com" label="email">
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            <f:validateLength minimum="2" />  
+
+
+                        </p:inputText>
+
+
+
+
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="emailtooltip" style="cursor: help;"/>
+
+
+
+                        <p:message for="email"></p:message>
+
+
+
+
+                        <h:outputText value="Status"></h:outputText>
+
+                        <p:selectOneMenu value="#{MbFuncionario.funcionarioStatus.idStatus}"   requiredMessage="Campo obrigatório" label="coddepto">
+
+                            
+                            <f:selectItems value="${mbFStatus.listaStatus}" id="status" />
+
+                        </p:selectOneMenu>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="statustooltip" style="cursor: help;"/>
+
+
+                        <p:message for="status" />
+
+                        <h:outputText value="Departamento:"></h:outputText>
+
+                        <p:selectOneMenu value="#{MbFuncionario.departamento.coddepto}" id="coddepto"  required="true" requiredMessage="Campo obrigatório" label="coddepto">
+
+                            <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+                            <f:selectItems value="#{MbDepartamento.listaDepartamento}" id="nomedepto"/>
+
+                        </p:selectOneMenu>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="deptotooltip" style="cursor: help;"/>
+
+
+                        <p:message for="coddepto"></p:message>
+
+                        <h:outputText value="Setor:"></h:outputText>
+
+                        <p:selectOneMenu value="#{MbFuncionario.setor.codsetor}" id="codsetor" label="codsetor" rendered="true" requiredMessage="Campo obrigatório">
+
+                            <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+                            <f:selectItems value="#{Mbsetor.listaSetor}" id="nomesetor"  />
+
+                        </p:selectOneMenu>
+
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="setortooltip" style="cursor: help;"/>
+
+                        <h:message for="codsetor"></h:message>
+
+
+                    </h:panelGrid>
+
+
+
+                    <div style="padding-left: 300px;">
+                       <p:commandButton type="button"  value="Cancela" onclick="javascript:location.reload(true)" ajax="false" id="limpa"  ></p:commandButton>
+                       <p:commandButton action="${MbFuncionario.alterarFuncionario}"  value="Confirma" ajax="false" id="cadastra"  ></p:commandButton>
+                        
+                    </div>
+
+
+                </p:panel>
+
+                <p:messages for="form1"></p:messages>
+
+
+                <p:tooltip for="matriculatooltip" value="Informe uma matricula Ex: 123" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="nometooltip" value="Informe um nome Ex: Barbara" showEffect="fade" hideEffect="fade" />  
+
+                <p:tooltip for="cargotooltip" value="Informe um cargo Ex: Analista" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="cargahorariatooltip" value="Informe a carga horaria Ex: 20h" showEffect="fade" hideEffect="fade" />  
+
+                <p:tooltip for="ramaltooltip" value="Informe um ramal Ex: 2222-2222" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="funcaotooltip" value="Informe uma função Ex: Analista de negocios" showEffect="fade" hideEffect="fade" />  
+                <p:tooltip for="emailtooltip" value="Informe um email Ex: rh@puc.com" showEffect="fade" hideEffect="fade" />  
+                <p:tooltip for="statustooltip" value="Selecione um status Ex: ativo" showEffect="fade" hideEffect="fade" />  
+                <p:tooltip for="deptotooltip" value="Selecione um departamento Ex: TI" showEffect="fade" hideEffect="fade" />  
+                <p:tooltip for="setortooltip" value="Selecione im setor Ex: informática" showEffect="fade" hideEffect="fade" />  
+
+
+
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+
+
+
+</html>
+

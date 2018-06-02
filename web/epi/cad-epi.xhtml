@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+
+                <p:growl id="form1" showDetail="true"/> 
+
+                <p:panel header="Cadastro de Epi" style="margin-bottom:10px;">
+
+                    <h:panelGrid columns="4" >
+
+                        <h:outputLabel for="ca"  value="C.A: "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.ca}" id="ca" label="C.A" required="true" requiredMessage="Campo obrigatório" >
+
+                            <f:validateLength minimum="0" />
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="catooltip" style="cursor: help;"/>
+
+                        <p:message for="ca"/>
+
+                        <h:outputLabel for="nome"  value="Nome: " ></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.nomeepi}" id="nome" required="true" label="nome" requiredMessage="Campo obrigatório"  >
+
+                            <f:validateLength minimum="3"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="nometooltip" style="cursor: help;"/>
+
+                        <p:message for="nome"></p:message>
+
+                        <h:outputLabel for="origemepi"  value="Origem "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.origemepi}" id="origemepi" required="true" label="protecao" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="origemepitooltip" style="cursor: help;"/>
+
+                        <p:message for="origemepi"></p:message>
+
+                        <h:outputLabel for="protecao"  value="Proteção: "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.epiprotege}" id="protecao" required="true" label="protecao" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="protecaotooltip" style="cursor: help;"/>
+
+                        <p:message for="protecao"></p:message>
+
+                        <h:outputLabel for="estoque"  value="Estoque: "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.quantidade}" id="estoque" required="true" label="quantidade" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="qtdtooltip" style="cursor: help;"/>
+
+                        <p:message for="estoque"></p:message>
+
+                        <h:outputLabel for="qtdminima"  value="Quantidade Minima "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.quantminima}" id="qtdminima" required="true" label="quantidade Minima" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="qtdminimatooltip" style="cursor: help;"/>
+
+                        <p:message for="qtdminima"></p:message>
+
+                        <h:outputLabel for="valorunitario"  value="Valor unitário: "></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.valorunitario}" id="valorunitario" required="true" label="tamanho" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="valorunitariotooltip" style="cursor: help;"/>
+
+                        <p:message for="valorunitario"></p:message>
+
+                        <h:outputLabel for="qtdminima"  value="Tamanho"></h:outputLabel>
+
+                        <p:inputText value="${MBepi.epi.tamanho}" id="tamanho" required="true" label="tamanho" requiredMessage="Campo obrigatório">
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="tamanhotooltip" style="cursor: help;"/>
+
+                        <p:message for="tamanho"></p:message>
+
+                        <h:outputLabel for="datavalidade"  value="Validade do C.A "></h:outputLabel>
+
+                        <p:calendar value="${MBepi.epi.validadeca}" id="datavalidade" required="true" label="Validade CA" requiredMessage="Campo obrigatório" pattern="dd/MM/yyyy" locale="pt">
+
+                        </p:calendar>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="datavalidadetooltip" style="cursor: help;"/>
+
+                        <p:message for="datavalidade"></p:message>
+
+                        <h:outputLabel for="descricao"  value="Descrição: "></h:outputLabel>
+
+                        <p:inputTextarea value="${MBepi.epi.descricaoepi}" id="descricao"  label="descricao"  required="true" requiredMessage="campo obrigatório" >
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputTextarea> 
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="descricaotooltip" style="cursor: help;"/>
+
+                        <p:message for="descricao"></p:message>
+
+                    </h:panelGrid>
+
+                    <div style="padding-left: 450px;">
+                        <p:commandButton action="${MBepi.cadastrar()}"  value="Cadastra" ajax="false" id="cadastra"  ></p:commandButton>
+                        <p:commandButton type="button"  value="Limpa" onclick="javascript:window.location.reload(true)" ajax="false" id="limpa"  ></p:commandButton>
+                    </div>
+
+                </p:panel>
+
+                <p:messages for="form1"></p:messages>
+
+                <p:tooltip for="catooltip" value="Informe com um C.A, Ex: 123456. Caso seja internacional preencha com o valor 0.  " showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="nometooltip" value="Informe o nome do equipamento Ex: Capacete" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="protecaotooltip" value="Informe o tipo de proteção que o equipamento oferece Ex: Impacto" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="descricaotooltip" value="Infome uma descrição para o equipamento Ex: Branco para engenheiros" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="qtdminimatooltip" value="Infome uma quantidade minima para o equipamento Ex: 10" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="qtdtooltip" value="Infome uma quantidade para o estoque do equipamento Ex: 10" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="origemepitooltip" value="Infome a origem do equipamento Ex: 10" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="tamanhotooltip" value="Infome o tamanho do equipamento Ex: 10" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="valorunitariotooltip" value="Informe o valor  do equipamento Ex: 10" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="datavalidadetooltip" value="Infome a data de validade do C.A Ex: 25/08/2012" showEffect="fade" hideEffect="fade" />
+
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

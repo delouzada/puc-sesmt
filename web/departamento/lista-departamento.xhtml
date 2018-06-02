@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <h:head>
+
+        <title>Facelet Title</title>
+
+    </h:head>
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+
+                <div align="center">
+
+                    <p:growl id="form1" showDetail="true"/> 
+
+                    <p:dataTable id="departamento" emptyMessage="Não Foram Encontrados Registros" value="${MbDepartamento.listaDepartamentos}"
+                                 var="dpto"   resizableColumns="true" paginatorAlwaysVisible="9" paginator="true" rows="9" >
+
+                        <p:column headerText="Nome" filterBy="${dpto.nomedepto}" >
+
+                            <h:outputText value="${dpto.nomedepto}" />
+
+                        </p:column>
+
+                        <p:column  headerText="Local">  
+
+                            <h:outputText value="${dpto.localdepto}" />
+
+                        </p:column>
+
+                        <p:column headerText="Alterar">
+
+                            <p:commandButton action="${MbDepartamento.preparaAlterar()}" value="Altera" ajax="false"></p:commandButton>
+
+                        </p:column>
+
+
+                        <p:column headerText="Remover" >
+
+                            <p:commandButton action="${MbDepartamento.preparaRemove}" value="Remove" ajax="false"></p:commandButton>
+
+                        </p:column>
+
+                    </p:dataTable>
+
+                </div>
+
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+
+

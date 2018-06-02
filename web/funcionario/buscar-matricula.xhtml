@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+
+
+            <p:growl id="form1" showDetail="true"/> 
+   
+            <h:form>
+
+                <p:panel header="Busca por Matricula" style="margin-bottom: 10px">
+
+                    <h:panelGrid columns="4">
+
+                        <h:outputLabel for="matricula"  value="Informe uma matricula: "></h:outputLabel>
+
+                        <p:inputText value="${Mbadquirir.funcionario.matricula}" id="matricula" required="true" requiredMessage="Campo obrigatório" label="matricula"  >
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>    
+
+                              <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="matriculatooltip" style="cursor: help;"/>
+
+                        <p:message for="matricula"></p:message>
+
+
+                    </h:panelGrid>
+                    
+                    <div style="padding-left: 300px;">
+                    <p:commandButton action="${Mbadquirir.buscarMatricula}" value="buscar" id="form1" ajax="false" ></p:commandButton>
+                    </div>
+                    <p:messages for="form1"></p:messages>    
+                </p:panel>
+
+                 <p:tooltip for="matriculatooltip" value="Informe uma matricula Ex: 123" showEffect="fade" hideEffect="fade" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

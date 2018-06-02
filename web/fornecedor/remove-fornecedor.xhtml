@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+
+            <h:form>
+                <p:growl id="form1" showDetail="true"/> 
+
+                <p:panel header="Remoção de Fornecedor" style="margin-bottom:10px;">
+
+                    <h:panelGrid columns="4">
+
+                        <h:outputLabel for="cnpj"  value="CNPJ "></h:outputLabel>
+                        <p:inputText value="${MbFornecedor.fornecedor.cnpj}" id="cnpj" label="cnpj" required="true" requiredMessage="Campo obrigatório" disabled="true" >
+
+                            <f:validateLength minimum="2" />
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="cnpjtooltip" style="cursor: help;"/>
+
+
+                        <p:message for="cnpj"/>
+
+
+
+                        <h:outputLabel for="nome"  value="Nome: " ></h:outputLabel>
+
+                        <p:inputText value="${MbFornecedor.fornecedor.nomefornecedor}" id="nome" required="true" label="nome" requiredMessage="Informe um nome" disabled="true" >
+
+                            <f:validateLength minimum="3"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="nometooltip" style="cursor: help;"/>
+
+
+                        <p:message for="nome"></p:message>
+
+
+
+                        <h:outputLabel for="contato"  value="Contato"></h:outputLabel>
+
+                        <p:inputText value="${MbFornecedor.fornecedor.contato}" id="contato" required="true" label="contato" requiredMessage="I" disabled="true">
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="contatotooltip" style="cursor: help;"/>
+
+                        <p:message for="contato"></p:message>
+
+
+
+
+
+                        <h:outputLabel for="fabricante"  value="Fabricante"></h:outputLabel>
+
+                        <p:inputText value="${MbFornecedor.fornecedor.fabricante}" id="fabricante" required="true" label="fabricante" requiredMessage="Campo obrigatório" disabled="true">
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="fabricantetooltip" style="cursor: help;"/>
+
+
+                        <p:message for="fabricante"></p:message>
+
+
+                        <h:outputLabel for="codepi"  value="Epi"></h:outputLabel>
+
+                        
+                        
+                        <p:selectOneMenu value="#{MbFornecedor.epi.codepi}" id="codepi" disabled="true" >
+
+                            <f:selectItems value="#{MBepi.listaEpis}" id="nomeepi"   />
+
+                        </p:selectOneMenu>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="epitooltip" style="cursor: help;"/>
+
+
+                        <p:message for="codepi"></p:message>
+
+
+
+
+                        <h:outputLabel for="endereco"  value="Endereco:  "></h:outputLabel>
+
+                        <p:inputTextarea value="${MbFornecedor.fornecedor.endereco}" id="endereco"  label="endereco"  required="true" requiredMessage="Campo obrigatório" disabled="true">
+
+                            <f:validateLength minimum="1"/>
+
+                        </p:inputTextarea> 
+
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="enderecotooltip" style="cursor: help;"/>
+
+
+                        <p:message for="endereco"></p:message>
+
+
+                        
+                        
+
+                    </h:panelGrid>
+
+                    <div style="padding-left: 300px;">
+                        <p:commandButton action="${MbFornecedor.excluir()}"  value="Confirma" ajax="false" id="cadastra"  ></p:commandButton>
+                        <p:commandButton type="button"  value="Cancela" onclick="javascript:location.reload(true)" ajax="false" id="limpa"  ></p:commandButton>
+                    </div>
+               
+                    <p:messages for="form1"></p:messages>
+
+
+
+
+                </p:panel>
+
+                <p:tooltip for="cnpjtooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="nometooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />  
+
+                <p:tooltip for="contatotooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="fabricantetooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />  
+
+                <p:tooltip for="epitooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="enderecotooltip" value="Este campo está desabilitado para preenchimento" showEffect="fade" hideEffect="fade" />  
+
+
+
+
+
+            </h:form>
+
+
+
+
+
+        </ui:define>
+    </ui:composition>
+
+</html>
+

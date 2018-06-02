@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+
+                <p:growl  showDetail="true"/> 
+
+                <p:panel header="Alteração de Departamento" style="margin-bottom: 10px">
+
+                    <h:panelGrid columns="5" >
+
+
+                        <h:outputLabel for="nomesetor"  value="Nome "></h:outputLabel>
+
+                        <p:inputText value="${MbDepartamento.departamento.nomedepto}" id="nomedepto"  label="Departamento" required="true" requiredMessage="Campo obrigatorio"  >
+
+                            <f:validateLength minimum="2"/>
+
+                        </p:inputText>    
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="setortooltip" style="cursor: help;"/>
+
+                        <p:message for="nomedepto"></p:message>
+
+                        <div style="padding-top:50px;">
+
+                            <h:outputLabel for="localdepto"  value="Local: "></h:outputLabel>
+
+                            <p:inputText value="${MbDepartamento.departamento.localdepto}" id="localdepto" label="Local" required="true" requiredMessage="Campo obrigatorio"   >
+
+                                <f:validateLength minimum="1"/>
+
+                            </p:inputText>    
+
+                            <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="localtooltip" style="cursor: help;"/>
+
+                            <p:message for="localdepto"></p:message>
+
+                        </div>
+
+                    </h:panelGrid>
+
+                    <div style="padding-left: 300px;">
+
+                        <p:commandButton type="button"  value="Cancela" ajax="false"  onclick="window.location.reload(true)"  ></p:commandButton>
+
+                        <p:commandButton action="${MbDepartamento.alteraDepartamento}"  value="Confirma" ajax="false" id="form1"  ></p:commandButton>
+
+                    </div>
+
+                </p:panel>
+
+                <p:messages for="form1"></p:messages>
+
+                <h:inputHidden value="${MbDepartamento.departamento.coddepto}" id="coddepto" /> 
+
+                <p:tooltip for="setortooltip" value="Informe  com o nome do setor Ex: Informatica" showEffect="fade" hideEffect="fade" />
+
+                <p:tooltip for="localtooltip" value="Informe   com o local do setor Ex: Leme" showEffect="fade" hideEffect="fade" />  
+                
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

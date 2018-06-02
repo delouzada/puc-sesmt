@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+
+            <h:form id="principal"> 
+
+                <div align="center">
+                    <p:growl id="form1" showDetail="true" autoUpdate="true"/> 
+                    <p:dataTable id="funcionario" emptyMessage="Não Foram Encontrados Registros" value="${MbFuncionario.listaFuncionarios}"
+                                 var="funcionario"   resizableColumns="true" paginator="true" rows="6"  >
+
+
+
+
+                        <p:column style="width:4%">  
+                            <p:rowToggler />  
+                        </p:column> 
+
+
+                        <p:column headerText="Matricula" filterBy="#{funcionario.matricula}">
+                            <h:outputText value="#{funcionario.matricula}" />
+                        </p:column>
+
+
+
+
+
+                        <p:column headerText="Nome" filterBy="${funcionario.nome}">  
+                            <h:outputText value="${funcionario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Departamento" >
+                            <h:outputText value="#{funcionario.departamento.nomedepto}" />
+                            <h:outputText value="#{funcionario.departamento.coddepto}" />
+                        </p:column>
+
+
+
+                        <p:column headerText="Setor" >          
+                            <h:outputText value="#{funcionario.setor.nomesetor}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column headerText="Cargo">
+                            <h:outputText value="${funcionario.cargo}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column headerText="Funcão" >
+                            <h:outputText value="${funcionario.funcao}" />
+
+                        </p:column>
+
+
+
+
+
+
+                        <p:rowExpansion> 
+
+                            <h:panelGrid id="display" columns="2" cellpadding="4" style="font-size:11px; margin: 0 auto; "   
+                                         styleClass=" ui-widget-content grid"  >  
+
+
+
+                                <h:outputText value="E-mail" />
+                                <h:outputText value="${funcionario.email}"  />
+
+
+
+
+
+
+                                <h:outputText value="Ramal" />
+                                <h:outputText value="#{funcionario.ramal}" />
+
+
+
+
+
+
+
+
+                                <h:outputText value="Carga Horaria" />
+
+
+                                <h:outputText value="${funcionario.cargahoraria}"  />
+
+
+
+
+                            </h:panelGrid>
+
+                        </p:rowExpansion>
+
+
+
+
+
+
+                        <p:column headerText="Status" >
+                            <h:outputText value="#{funcionario.funcionarioStatus.status}"/>
+
+                        </p:column>
+
+
+
+
+
+
+
+
+
+                        <p:column headerText="Alterar" >
+
+                            <p:commandButton action="${MbFuncionario.prepararAlterarFuncionario}" value="Altera" ajax="true"></p:commandButton>
+
+                        </p:column>
+
+
+
+                        <p:column headerText="Remover" >
+
+
+                            <p:commandButton action="${MbFuncionario.prepararRemoveFuncionario}" value="Remove" ajax="true"></p:commandButton>
+
+                        </p:column>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </p:dataTable>
+
+                </div>
+            </h:form>
+
+
+
+
+
+
+
+        </ui:define>
+    </ui:composition>	
+
+</html>
+
+

@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    
+        <ui:composition template="/template.xhtml">
+            <ui:define name="body">
+                <h:form>
+
+                    <p:growl id="form1" showDetail="true"/> 
+
+                    <p:panel header="Cadastro de funcionario" style="margin-bottom:10px;">
+
+                        <h:panelGrid columns="3">
+
+                            <h:outputLabel for="matricula"  value="Matricula: "></h:outputLabel>
+                            <p:inputText value="${MbFuncionario.funcionario.matricula}" id="matricula" label="matricula" required="true" requiredMessage="campo obrigatório" validatorMessage="Exemplo: 123456" >
+
+                                <f:validateLength minimum="2" />
+
+                            </p:inputText>
+
+                            <p:message for="matricula"/>
+
+
+
+                            <h:outputLabel for="nome"  value="Nome: " ></h:outputLabel>
+
+                            <p:inputText value="${MbFuncionario.funcionario.nome}" id="nome" required="true" label="nome" requiredMessage="campo obrigatório"   >
+
+                                <f:validateLength minimum="3"/>
+
+                            </p:inputText>
+
+                            <p:message for="nome"></p:message>
+
+
+                            <h:outputLabel for="cargo"  value="Cargo: "></h:outputLabel>
+
+                            <p:inputText value="${MbFuncionario.funcionario.cargo}" id="cargo" required="true" label="cargo" requiredMessage="campo obrigatório">
+
+                                <f:validateLength minimum="2"/>
+
+                            </p:inputText>
+
+                            <p:message for="cargo"></p:message>
+
+                            <h:outputLabel for="carga horaria"  value="carga horaria: "></h:outputLabel>
+
+                            <p:inputMask value="${MbFuncionario.funcionario.cargahoraria}" id="cargahoraria"  label="cargahoraria"  required="true" requiredMessage="campo obrigatório" mask="9*h" >
+
+                                <f:validateLength minimum="1" maximum="4"/>
+
+                            </p:inputMask>
+
+                            <p:message for="cargahoraria"></p:message>
+
+
+                            <h:outputLabel for="carga horaria"  value="Ramal: "></h:outputLabel>
+
+                            <p:inputMask value="${MbFuncionario.funcionario.ramal}" id="ramal" required="true" maxlength="13" requiredMessage="campo obrigatório" label="ramal" mask="(999) 9999 - 9999*">
+
+                                <f:validateLength minimum="8" maximum="19"/>
+
+                            </p:inputMask>
+
+                            <p:message for="ramal"></p:message>
+
+
+                            <h:outputLabel for="carga horaria"  value="Funcao: "></h:outputLabel>
+
+                            <p:inputText value="${MbFuncionario.funcionario.funcao}" id="funcao" required="true"  requiredMessage="campo obrigatório" label="funcao">
+
+                                <f:validateLength minimum="2" />    
+
+                            </p:inputText>
+
+                            
+                            <p:message for="funcao"></p:message>
+
+
+                            <h:outputLabel for="email"  value="E-mail: "></h:outputLabel>
+
+                            <p:inputText value="${MbFuncionario.funcionario.email}" id="email" required="true"  requiredMessage="Campo obrigatório" validatorMessage="Exemplo: xxx@xxx.com" label="email">
+                                 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                <f:validateLength minimum="2" />  
+                                
+
+                            </p:inputText>
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <p:message for="email"></p:message>
+
+
+                            
+                            
+                            <h:outputText value="Status"></h:outputText>
+
+                            <p:selectOneMenu value="#{MbFuncionario.funcionarioStatus.idStatus}"   requiredMessage="Campo obrigatório" label="coddepto">
+
+                                <f:selectItems value="${mbFStatus.listaStatus}" id="status" />
+                                
+                            </p:selectOneMenu>
+                            
+
+                            <p:message for="status" />
+
+                            <h:outputText value="Departamento:"></h:outputText>
+
+                            <p:selectOneMenu value="#{MbFuncionario.departamento.coddepto}" id="coddepto"  requiredMessage="Campo obrigatório" label="coddepto">
+
+                                <f:selectItems value="#{MbDepartamento.listaDepartamento}" id="nomedepto"/>
+
+                            </p:selectOneMenu>
+
+                            <p:message for="coddepto"></p:message>
+
+                            <h:outputText value="Setor:"></h:outputText>
+
+                            <p:selectOneMenu value="#{MbFuncionario.setor.codsetor}" id="codsetor" label="codsetor">
+
+                                <f:selectItems value="#{Mbsetor.listaSetor}" id="nomesetor"  />
+
+                            </p:selectOneMenu>
+
+                            <h:message for="codsetor"></h:message>
+
+
+                        </h:panelGrid>
+
+                    </p:panel>
+
+                    <p:commandButton action="${MbFuncionario.cadastrar}" value="Cadastra    " ajax="false"></p:commandButton>
+
+                    <p:messages for="form1"></p:messages>
+                </h:form>
+
+
+            </ui:define>
+        </ui:composition>
+
+
+
+</html>
+

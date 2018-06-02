@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <style>
+                table {
+                    font-size: 11px !important;
+                }
+                #divadquirido {
+                    font-size: 11px !important;
+                    margin-top: 0;
+                    /*padding-left: 263px;*/
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    /*z-index: 1;*/
+                }
+                #divadquirir {
+                    font-size: 11px;
+                    /*left: -1px;
+                    margin-top: -182px;*/
+                    padding: 0;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                }
+                #divBaixado {
+                    margin-top: 0;
+                    /*padding-left: 344px;*/
+                    position: relative;
+                    width:100%;
+                    display: block;
+                }
+                #divAccordion {
+                    font-size: 12px;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                }
+                #baixado {
+                    font-size: 11px;
+                }
+
+            </style>
+
+
+            <h:form> 
+
+
+
+                <p:growl id="form1" showDetail="true"/> 
+
+
+                <div id="divAccordion">
+
+                    <p:accordionPanel multiple="true" >
+
+
+
+
+                        <p:tab title="Funcionario">
+                            <h:panelGrid columns="4" cellpadding="10">
+
+
+                                <h:outputText value="Matricula: "  />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.matricula}"  />
+
+
+                                <h:outputText value="Status: "  />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.funcionarioStatus.status}"  />
+
+                                <h:outputText value="Nome: " />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.nome}"  />
+
+                                <h:outputText value="Ramal: "  />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.ramal}" />
+
+                                <h:outputText value="Função:  " />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.funcao}"  />
+
+                                <h:outputText value="Cargo: "  />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.cargo}"  />
+
+                                <h:outputText value="E-mail:  "  />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.email}"  />
+
+
+                            </h:panelGrid>
+                        </p:tab>
+
+                        <p:tab title="Departamento">
+                            <h:panelGrid columns="2" cellpadding="10">
+
+                                <h:outputText value="Nome: " for="deptonome" />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.departamento.nomedepto}" id="deptonome" />
+                                <h:outputText value="Local: " for="localdpto" />
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.departamento.localdepto}" id="deptolocal" />
+
+
+                            </h:panelGrid>
+                        </p:tab>                
+
+                        <p:tab title="Setor">
+                            <h:panelGrid columns="2" cellpadding="10">
+
+
+                                <h:outputText value="Nome: " for="setornome" />
+
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.setor.nomesetor}" id="setornome" />
+                                <h:outputText value="Local " for="localsetor" />
+
+                                <h:outputText value="#{Mbadquirir.funcionarioexibe.setor.localsetor}" id="localsetor" />
+
+
+                            </h:panelGrid>
+
+                        </p:tab>
+
+                    </p:accordionPanel>
+                </div>				
+
+
+
+
+
+
+
+
+                <div id="divBaixado">
+
+
+                    <p:dataTable id="baixado" var="itensadquiridos" value="#{Mbadquirir.listaItensDevolvidos}" paginator="true" rows="3" emptyMessage="Não Foram Encontrados Registros"    >
+
+
+                        <f:facet name="header">
+                            Epi Devolvidos
+                        </f:facet>
+
+
+
+
+
+                        <p:column style="width:4%">  
+                            <p:rowToggler />  
+                        </p:column> 
+
+
+
+                        <p:rowExpansion> 
+
+                            <h:panelGrid id="displaybaixado" columns="2" cellpadding="4" style="font-size:11px;  "   
+                                         styleClass=" ui-widget-content grid" >  
+
+
+
+
+
+                                <h:outputText value="Historico" id="historicotxtbaixado"/>
+
+                                <h:outputText value="#{itensadquiridos.historico}" id="historicobaixado"/>
+
+                                <h:outputText value="Quantidade" id="qtdtxtbaixado"/>
+
+
+                                <h:outputText value="#{itensadquiridos.quantidade}" id="quantidadebaixado"/>
+
+
+
+
+                            </h:panelGrid>
+
+                        </p:rowExpansion>
+
+
+
+
+
+
+
+                        <p:column headerText="Código" >  
+                            <h:outputText value="#{itensadquiridos.epi.codepi}" id="codepibaixado"/>    
+                        </p:column> 
+
+                        <p:column headerText="C.A" filterBy="#{itensadquiridos.epi.ca}">  
+                            <h:outputText value="#{itensadquiridos.epi.ca}" id="cabaixado"/>    
+                        </p:column> 
+
+                        <p:column headerText="Nome" filterBy="#{itensadquiridos.epi.nomeepi}">  
+                            <h:outputText value="#{itensadquiridos.epi.nomeepi}" id="nomebaixado"/>
+                        </p:column> 
+
+                        <p:column headerText="Data de Aquisição">  
+                            <h:outputText value="#{itensadquiridos.dataaquisicao}" id="dataaquisicaobaixado">
+
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </p:column> 
+                        <p:column headerText="Data de devolução">  
+                            <h:outputText value="#{itensadquiridos.dataDevolucao}" id="datadevolucao">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </p:column> 
+
+
+
+
+                    </p:dataTable>
+
+
+                </div>
+
+
+
+
+
+                <div id="divadquirido">
+
+
+                    <p:dataTable id="adquirido" var="itensadquiridos" value="#{Mbadquirir.listaItensAdquiridos}" paginator="true" rows="3"  emptyMessage="Não Foram Encontrados Registros"  >
+
+                        <f:facet name="header">
+                            Epis Adquiridos
+                        </f:facet>
+
+
+
+                        <p:column style="width:4%">  
+                            <p:rowToggler />  
+                        </p:column> 
+
+
+
+                        <p:rowExpansion> 
+
+                            <h:panelGrid id="displayadiquiridos" columns="2" cellpadding="4" style="font-size:11px; "   
+                                         styleClass=" ui-widget-content grid" >  
+
+
+
+
+
+                                <h:outputText value="Historico" id="historicotxt"/>
+
+                                <h:outputText value="#{itensadquiridos.historico}" id="historicoadquirido"/>
+
+                                <h:outputText value="Quantidade" id="qtd"/>
+
+
+                                <h:outputText value="#{itensadquiridos.quantidade}" id="quantidadeadquirido" rendered="true"  />
+
+
+
+
+                            </h:panelGrid>
+
+                        </p:rowExpansion>
+
+
+
+
+
+
+
+
+                        <p:column headerText="C.A" filterBy="#{itensadquiridos.epi.ca}">  
+                            <h:outputText value="#{itensadquiridos.epi.ca}" id="dataaquisicaoadquirido">
+
+                            </h:outputText>    
+                        </p:column> 
+
+                        <p:column headerText="Nome" filterBy="#{itensadquiridos.epi.nomeepi}">  
+                            <h:outputText value="#{itensadquiridos.epi.nomeepi}" id="nomeepiadquirido"/>
+                        </p:column> 
+
+
+                        <p:column headerText="Data de Aquisição">  
+                            <h:outputText value="#{itensadquiridos.dataaquisicao}" id="dataaquisicao">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>  
+                        </p:column> 
+                       
+
+
+
+                        <p:column headerText="Estado">  
+                            <p:inputTextarea value="#{Mbadquirir.itensdevolvidos.estado}" id="devolucao"/>  
+                        </p:column> 
+
+
+
+
+                        <p:column headerText="Receber">  
+                            <p:commandButton value="Devolve" ajax="false" action="${Mbadquirir.baixaEpi}"  />   
+                        </p:column> 
+
+
+
+
+                    </p:dataTable>
+
+
+                </div>
+
+
+
+
+
+
+                <div id="divadquirir">
+                    <p:dataTable id="adquiri" var="epi" value="#{Mbadquirir.listaEpi}" paginator="true" rows="3"   styleClass="" emptyMessage="Não Foram Encontrados Registros" >
+
+
+                        <f:facet name="header">
+                            Adquirir Epi
+                        </f:facet>
+
+
+
+
+                        <p:column style="width:4%">  
+                            <p:rowToggler />  
+                        </p:column> 
+
+
+
+                        <p:rowExpansion> 
+
+                            <h:panelGrid id="display" columns="2" cellpadding="4" style="font-size:11px; "   
+                                         styleClass=" ui-widget-content grid" >  
+
+
+                                <h:outputText value="Descrição:" /> 
+                                <h:outputText value="#{epi.descricaoepi}" id="descricao"/>  
+
+
+
+
+                                <h:outputText value="Tamanho:" /> 
+                                <h:outputText value="#{epi.tamanho}" id="tamanho"/>  
+
+
+                                <h:outputText value="Proteção" /> 
+                                <h:outputText value="#{epi.epiprotege}" id="protege"/>  
+
+                                <h:outputText value="Origem" /> 
+                                <h:outputText value="#{epi.origemepi}" id="origemepi"/>  
+
+                                <h:outputText value="Valor Unitário" /> 
+                                <h:outputText value="#{epi.valorunitario}" id="valorunitario"/>  
+
+                                <h:outputText value="Quantidade Minima" /> 
+
+                                <h:outputText value="#{epi.quantminima}" id="qtdminima"/>  
+
+
+
+                            </h:panelGrid>
+
+                        </p:rowExpansion>
+
+
+
+
+                        <p:column headerText="C.A" filterBy="#{epi.ca}">  
+                            <h:outputText value="#{epi.ca}" id="ca"/>  
+                        </p:column> 
+
+                        <p:column headerText="Nome" filterBy="#{epi.nomeepi}">  
+                            <h:outputText value="#{epi.nomeepi}" id="nomeepi"/>  
+                        </p:column> 
+
+
+                        <p:column headerText="validade">  
+                            <h:outputText value="#{epi.validadeca}" id="validadeca">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>  
+                        </p:column> 
+
+
+                        <p:column headerText="Estoque">  
+                            <h:outputText value="#{epi.quantidade}" id="quantidadeestoque"/>  
+                        </p:column> 
+
+                        <p:column headerText="Quantidade">  
+                            <h:inputText value="#{Mbadquirir.itensadquiridos.quantidade}" id="quantidade"  />  
+                        </p:column> 
+
+
+                        <p:column headerText="Historico">  
+                            <h:inputTextarea value="#{Mbadquirir.itensadquiridos.historico}" id="historico"/>  
+                        </p:column> 
+
+
+
+
+
+
+
+                        <p:column headerText="Entregar">  
+                            <p:commandButton value="Adquiri" ajax="false" action="${Mbadquirir.adquirirEpi}" />  
+                        </p:column> 
+
+
+
+
+
+
+                    </p:dataTable>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </h:form>
+
+
+
+
+
+
+
+
+
+
+
+        </ui:define>
+    </ui:composition>
+
+
+
+
+
+
+
+
+</html>
+
+

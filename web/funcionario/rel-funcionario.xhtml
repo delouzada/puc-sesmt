@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+
+    <ui:composition template="/template.xhtml" >
+
+
+        <ui:define name="body" >
+
+
+            <h:form> 
+
+
+                <div align="center">
+                    <p:growl id="form1" showDetail="true" autoUpdate="true"/> 
+                    <p:dataTable id="funcionario" emptyMessage="Não Foram Encontrados Registros" value="${MbFuncionario.listaFuncionarios}"
+                                 var="funcionario"  editable="true" resizableColumns="true"  >
+
+
+
+
+                        <p:column filterBy="${funcionario.matricula}">
+                            <f:facet name="header">
+                                <h:outputText value="Matricula" />
+                            </f:facet>    
+                            <h:outputText value="#{funcionario.matricula}" />
+                        </p:column>
+
+
+
+
+
+                        <p:column  filterBy="${funcionario.nome}">  
+
+                            <f:facet name="header">
+                                <h:outputText value="Nome" />
+                            </f:facet>    
+
+                            <h:outputText value="${funcionario.nome}" />
+                        </p:column>
+
+                        <p:column  filterBy=" ${funcionario.departamento.nomedepto}">
+                            <f:facet name="header">
+                                <h:outputText value="Departamento" />
+                            </f:facet>    
+
+                            <h:outputText value="#{funcionario.departamento.nomedepto}" />
+
+                        </p:column>
+
+
+
+                        <p:column filterBy="${funcionario.setor.nomesetor}">          
+
+                            <f:facet name="header">
+                                <h:outputText value="Setor" />
+                            </f:facet>    
+
+                            <h:outputText value="#{funcionario.setor.nomesetor}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column  filterBy="${funcionario.cargo}">
+                            <f:facet name="header">
+                                <h:outputText value="Cargo" />
+                            </f:facet>    
+
+                            <h:outputText value="${funcionario.cargo}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column filterBy="${funcionario.funcao}">
+
+                            <f:facet name="header">
+                                <h:outputText value="Função" />
+                            </f:facet>    
+
+                            <h:outputText value="${funcionario.funcao}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column headerText="E-mail" filterBy="${funcionario.email}" >
+
+                            <f:facet name="header">
+                                <h:outputText value="E-mail" />
+                            </f:facet>    
+                            <h:outputText value="${funcionario.email}"  />
+
+                        </p:column>
+
+                        <p:column headerText="E-mail" filterBy="#{funcionario.ramal}">
+
+                            <f:facet name="header">
+                                <h:outputText value="Ramal" />
+                            </f:facet>    
+
+                            <h:outputText value="#{funcionario.ramal}" />
+                        </p:column>
+
+
+
+
+
+                        <p:column  filterBy="#{funcionario.funcionarioStatus.status}">
+
+                            <f:facet name="header">
+                                <h:outputText value="Status" />
+                            </f:facet>    
+
+                            <h:outputText value="#{funcionario.funcionarioStatus.status}" />
+                        </p:column>
+
+
+
+
+
+                    </p:dataTable>
+
+
+                    <p:panel header="Exportar Conteudo">  
+                        <h:commandLink>  
+                            <p:graphicImage value="excel.png" />  
+                            <p:dataExporter type="xls" target="funcionario" fileName="cars" />  
+                        </h:commandLink>  
+
+                        <h:commandLink>  
+                            <p:graphicImage value="pdf.png" />  
+                            <p:dataExporter type="pdf" target="funcionario" fileName="funcionario" />  
+                        </h:commandLink>  
+
+                        <h:commandLink>  
+                            <p:graphicImage value="csv.png" />  
+                            <p:dataExporter type="csv" target="funcionario" fileName="funcionario" pageOnly="true"/>  
+                        </h:commandLink>  
+
+                        <h:commandLink>  
+                            <p:graphicImage value="xml.png"  />  
+                            <p:dataExporter type="xml" target="funcionario" fileName="funcionario"  />  
+                        </h:commandLink>  
+                    </p:panel>  
+
+                </div>
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+
+
+</html>
+
+

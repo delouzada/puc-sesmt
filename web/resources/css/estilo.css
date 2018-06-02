@@ -1,0 +1,155 @@
+
+* {
+				margin: 0;
+				padding: 0;
+}
+body,html {
+				margin: 0px;
+                                padding: 0px;
+				height: 100%;
+                                width: 100%;
+                                font-size: 11px !important;
+}
+
+.spot {
+				background: url("/portalweb/ShowPropertyServlet?nodeId=/UCMRepository/PW_IMG_HOME_BG_SPOT") no-repeat scroll left top transparent;
+				float: left;
+				margin: 8px 5px 0;
+}
+#cabecalho {
+				-webkit-box-shadow: #666 0px 2px 3px;
+				-moz-box-shadow: #666 0px 2px 3px;
+				box-shadow: #666 0px 2px 3px;
+				behavior: url(PIE.htc);
+}
+.cabecalho {
+				-webkit-border-radius: 8px;
+				-moz-border-radius: 8px;
+				border-radius: 8px;
+				-webkit-box-shadow: #666 0px 2px 3px;
+				-moz-box-shadow: #666 0px 2px 3px;
+				box-shadow: #666 0px 2px 3px;
+				behavior: url(PIE.htc);
+}
+#conteudo {
+				width: 960px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 100%;
+				position: relative;
+}
+#content {
+
+
+				background-color: white;
+				width: 1000px;
+				min-height: 420px;
+                                margin: 0 auto;
+				height: auto;
+				position:relative;
+				padding:15px
+}
+#logosgu {
+				background-image: url('logo.png');
+				width: 90px;
+				height: 100%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				top:5px;
+				left:90px;
+				position:absolute;
+}
+#logopuc {
+				float: right;
+				position: absolute;
+				left: 890px;
+				z-index:20
+}
+.box {
+				color: #575757;
+				display: none;
+				font-size: 9px;
+				height: 268px;
+				line-height: 14px;
+				position: static;
+				width: 317px;
+}
+.frames {
+				width: 100%;
+				min-height: 450px;
+				background-image:url('/puc-smst/resources/css/imagens/background.png');
+				background-repeat:repeat;
+				background-position:-200px center;
+				background-color:#4F7D97;
+
+				-webkit-box-shadow: #666 0px 2px 3px;
+				-moz-box-shadow: #666 0px 2px 3px;
+				box-shadow: #666 0px 2px 3px;
+				behavior: url(PIE.htc);
+				z-index: 10;
+				position: relative;
+}
+.fundo {
+				width: 999px;
+				background-color: #33CCCC;
+				height: 100px;
+				margin-left: auto;
+				margin-right: auto;
+				
+				behavior: url(PIE.htc);
+				position:relative
+}
+.fundo1 {
+				width: 999px;
+				background-color: #33CCCC;
+				height: 100px;
+				margin-left: auto;
+				margin-right: auto;
+				position:relative;
+                                -webkit-border-bottom-right-radius: 20px;
+-webkit-border-bottom-left-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-moz-border-radius-bottomleft: 20px;
+border-bottom-right-radius: 20px;
+border-bottom-left-radius: 20px;
+}
+
+.base {
+				width: 100%;
+				height: 100%;
+				position:relative;
+                                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+vvvframes {
+				width: 100%;
+				min-height: 450px;
+				margin-bottom: 10px;
+				top: 50%;
+				position: absolute;
+				background-color: #FfFfFf;
+				border: 5px white solid;
+				-webkit-border-radius: 8px;
+				-moz-border-radius: 8px;
+				border-radius: 8px;
+				-webkit-box-shadow: #666 0px 2px 3px;
+				-moz-box-shadow: #666 0px 2px 3px;
+				box-shadow: #666 0px 2px 3px;
+				behavior: url(PIE.htc);
+}
+.todo {
+				padding: 0px;
+                                margin: 0px;
+                                width: 100%;
+                                height: 100%;
+                                    
+}
+div:after, ol:after, form:after, ul:after, dl:after {
+				content: ".";
+				display: block;
+				clear: both;
+				visibility: hidden;
+				height: 0;
+				overflow: hidden;
+}

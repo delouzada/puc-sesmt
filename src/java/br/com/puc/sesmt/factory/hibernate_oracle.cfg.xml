@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="hibernate.connection.username">PPRA</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.hbm2ddl.auto">true</property> 
+        <property name="show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        <mapping class="br.com.puc.sesmt.modelo.Centrocustodepto"/>
+        <mapping class="br.com.puc.sesmt.modelo.Setor"/>
+        <mapping class="br.com.puc.sesmt.modelo.Possuirisco"/>
+        <mapping class="br.com.puc.sesmt.modelo.Itensdevolvidos"/>
+        <mapping class="br.com.puc.sesmt.modelo.Compras"/>
+        <mapping class="br.com.puc.sesmt.modelo.Riscos"/>
+        <mapping class="br.com.puc.sesmt.modelo.Notasfiscais"/>
+        <mapping class="br.com.puc.sesmt.modelo.Planocentrocusto"/>
+       
+        <mapping class="br.com.puc.sesmt.modelo.Epi"/>
+        <mapping class="br.com.puc.sesmt.modelo.Itensadquiridos"/>
+        <mapping class="br.com.puc.sesmt.modelo.Itens"/>
+        <mapping class="br.com.puc.sesmt.modelo.ItensPk"/>
+        <mapping class="br.com.puc.sesmt.modelo.Departamento"/>
+        <mapping class="br.com.puc.sesmt.modelo.Funcionario"/>
+        <mapping class="br.com.puc.sesmt.modelo.Fornecedor"/>
+        <mapping class="br.com.puc.sesmt.modelo.Centrocustosetor"/>
+       
+        <mapping class="br.com.puc.sesmt.modelo.Tiporisco"/>
+        <mapping class="br.com.puc.sesmt.modelo.Riscos"/>
+        <mapping class="br.com.puc.sesmt.modelo.Tiporisco"/>
+        <mapping class="br.com.puc.sesmt.modelo.Centrocustosetor"/>
+        <mapping class="br.com.puc.sesmt.modelo.Itens"/>
+      
+        <mapping class="br.com.puc.sesmt.modelo.Notasfiscais"/>
+        <mapping class="br.com.puc.sesmt.modelo.Possuirisco"/>
+        <mapping class="br.com.puc.sesmt.modelo.Epi"/>
+        <mapping class="br.com.puc.sesmt.modelo.FuncionarioStatus"/>
+        <mapping class="br.com.puc.sesmt.modelo.Compras"/>
+        <mapping class="br.com.puc.sesmt.modelo.Centrocustodepto"/>
+        <mapping class="br.com.puc.sesmt.modelo.Itensdevolvidos"/>
+        <mapping class="br.com.puc.sesmt.modelo.Funcionario"/>
+        <mapping class="br.com.puc.sesmt.modelo.Fornecedor"/>
+        <mapping class="br.com.puc.sesmt.modelo.Departamento"/>
+        <mapping class="br.com.puc.sesmt.modelo.Setor"/>
+        <mapping class="br.com.puc.sesmt.modelo.Planocentrocusto"/>
+    </session-factory>
+</hibernate-configuration>

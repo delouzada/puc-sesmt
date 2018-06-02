@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+            <h:form> 
+                <div align="center">
+                    <p:growl id="form1" showDetail="true"/> 
+                    <p:dataTable id="fornecedor" emptyMessage="Não Foram Encontrados Registros" value="${MbFornecedor.listaFornecedor}"
+                                 var="fornecedor" rows="7" paginatorAlwaysVisible="7" paginator="true"   >
+
+
+
+
+                        <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpj}" >
+
+                            <h:outputText value="#{fornecedor.cnpj}" />
+
+                        </p:column>
+
+
+                        <p:column  headerText="Fabricante" filterBy="#{fornecedor.fabricante}">  
+                            <h:outputText value="#{fornecedor.fabricante}" />
+                        </p:column>
+
+
+
+
+                        <p:column  headerText="Nome">  
+                            <h:outputText value="#{fornecedor.nomefornecedor}" />
+
+
+                        </p:column>
+
+
+
+
+
+
+
+
+                        <p:column  headerText="Contato">  
+                            <h:outputText value="#{fornecedor.contato}" />
+                        </p:column>
+
+
+
+                        <p:column  headerText="Epi">  
+                            <h:outputText value="#{fornecedor.epi.nomeepi}" />
+                        </p:column>
+
+
+
+
+
+                        <p:column  headerText="Alterar">  
+                            <p:commandButton action="#{MbFornecedor.preparaAlterar}" value="Altera" ajax="false"></p:commandButton>
+                        </p:column>
+
+
+                        <p:column  headerText="Remover">  
+                            <p:commandButton action="#{MbFornecedor.preparaRemove}" value="Remove" ajax="false"></p:commandButton>
+                        </p:column>
+
+
+
+
+
+
+
+
+                    </p:dataTable>
+
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+

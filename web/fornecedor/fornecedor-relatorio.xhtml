@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form> 
+
+                <div align="center">
+                <p:growl id="form1" showDetail="true"/> 
+                <p:dataTable id="fornecedor" emptyMessage="Não Foram Encontrados Registros" value="${MbFornecedor.listaFornecedor}"
+                             var="fornecedor"  rows="10" paginatorAlwaysVisible="7" paginator="true"  >
+
+
+
+
+                    <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpj}" >
+
+                        
+                        <f:facet name="header">
+                            <h:outputText value="CNPJ" />
+                        </f:facet>    
+
+                        <h:outputText value="#{fornecedor.cnpj}" />
+
+                    </p:column>
+
+
+
+
+
+                    <p:column  headerText="Nome" filterBy="#{fornecedor.nomefornecedor}">  
+                      
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Nome" />
+                        </f:facet>    
+
+                        
+                        <h:outputText value="#{fornecedor.nomefornecedor}" />
+
+
+                    </p:column>
+
+
+
+
+
+
+
+                    <p:column  headerText="Contato" filterBy="#{fornecedor.contato}">  
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Contato" />
+                        </f:facet>    
+
+                        
+                        <h:outputText value="#{fornecedor.contato}" />
+                    </p:column>
+
+
+                    <p:column  headerText="Fabricante" filterBy="#{fornecedor.fabricante}">  
+                        
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Fabricante" />
+                        </f:facet>    
+
+                        
+                        <h:outputText value="#{fornecedor.fabricante}" />
+                    </p:column>
+
+                    
+                    
+                    <p:column  headerText="Fabricante" filterBy="#{fornecedor.epi.nomeepi}">  
+                        
+                        
+                        <f:facet name="header">
+                            <h:outputText value="Epi" />
+                        </f:facet>    
+
+                        
+                        <h:outputText value="#{fornecedor.epi.nomeepi}" />
+                    </p:column>
+
+
+
+
+
+
+
+
+
+
+
+
+                </p:dataTable>
+                
+                
+                
+                <p:panel header="Exportar Conteudo">  
+                    <h:commandLink>  
+                        
+                        <p:graphicImage value="excel.png" />  
+                        <p:dataExporter type="xls" target="fornecedor" fileName="fornecedor" />  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="pdf.png" />  
+                        <p:dataExporter type="pdf" target="fornecedor" fileName="fornedor" />  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="csv.png" />  
+                        <p:dataExporter type="csv" target="fornecedor" fileName="fornecedor" pageOnly="true"/>  
+                    </h:commandLink>  
+
+                    <h:commandLink>  
+                        <p:graphicImage value="xml.png"  />  
+                        <p:dataExporter type="xml" target="fornecedor" fileName="fornecedor"  />  
+                    </h:commandLink>  
+                </p:panel>  
+
+
+
+                </div>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+      
+     
+        <title><ui:insert name="title"> Serviço Especializado em Engenharia de Segurança e em Medicina do Trabalho - PUC-RIO</ui:insert></title>
+
+        <h:outputScript name="js/funcavo.js" />
+        <h:outputStylesheet name="css/estilo.css" />
+
+
+    </h:head>
+
+    <h:body>
+        <f:view>
+            <h1>
+
+            </h1>
+            <p>
+
+                <div id="todo1" class="todo" >
+                    <div id="base" class="base">
+                        <div class="fundo">
+                            <img id="logopuc" src="../resources/css/imagens/logopuc70.png" />
+                           
+                            <img id="logosgu" src="../resources/css/imagens/logo.png" />
+                        </div>
+                        <div id="frame" class="frames">
+                            <div id="content">
+                                <h:form>
+                                     
+                
+            <p:menubar>
+                       
+                <p:menuitem value="Inicio" url="/index/index.jsf" icon="ui-icon ui-icon-home" />
+                                        <p:submenu label="Cadastrar" icon="ui-icon ui-icon-disk">
+                                             
+                                            <p:menuitem value="Departamento" url="/departamento/cad-departamento.jsf" icon="ui-icon ui-icon-disk" />
+                                            <p:menuitem value="Epi" url="/epi/cad-epi.jsf" icon="ui-icon ui-icon-disk" />
+                                            <p:menuitem value="Fornecedor" url="/fornecedor/cad-fornecedor.jsf" icon="ui-icon ui-icon-disk" />  
+                                            <p:menuitem value="Funcionario" url="/funcionario/cad-funcionario.jsf" icon="ui-icon ui-icon-disk" />
+                                           
+                                            <p:menuitem value="Setor" url="/setor/cad-setor.jsf" icon="ui-icon ui-icon-disk" />
+                                           
+                                        </p:submenu>
+
+                                        <p:submenu label="Buscar" icon="ui-icon-search" >
+                                            <p:menuitem value="Matricula" url="/funcionario/buscar-matricula.jsp"  icon="ui-icon-search"/>
+                                           
+
+                                        </p:submenu>
+
+                                        <p:submenu label="Exibir" icon="ui-icon-calculator">
+
+                                            <p:menuitem value="Departamento" url="/departamento/lista-departamento.jsf" icon="ui-icon-calculator" />
+                                            <p:menuitem value="Epi" url="/epi/lista-epi.jsf" icon="ui-icon-calculator" />
+                                            <p:menuitem value="Fornecedor" url="/fornecedor/lista-fornecedor.jsf" icon="ui-icon-calculator" />  
+                                            <p:menuitem value="Funcionario" url="/funcionario/lista-funcionario.jsf" icon="ui-icon-calculator" />
+                                            <p:menuitem value="Setor" url="/setor/lista-setor.jsf" icon="ui-icon-calculator" />
+                                           
+
+                                        </p:submenu>
+                                        <p:submenu label="Relatorio" icon="ui-icon-gear">
+
+                                            <p:menuitem value="Departamento" url="/departamento/relatorio-departamento.jsf" icon="ui-icon-gear" />
+                                           <p:menuitem value="Epi" url="/epi/relatorio-epi.jsf" icon="ui-icon-gear" />
+                                            <p:menuitem value="Fornecedor" url="/fornecedor/fornecedor-relatorio.jsf" icon="ui-icon-gear" />  
+                                            <p:menuitem value="Funcionario" url="/funcionario/rel-funcionario.jsf" icon="ui-icon-gear"  ajax="true"/>
+                                            <p:menuitem value="Setor" url="/setor/relatorio-setor.jsf" icon="ui-icon-gear" />
+                                          
+                                        </p:submenu>
+
+
+                                    </p:menubar>
+
+
+                                </h:form>
+                                
+                
+     
+                                
+                                <ui:insert name="body"></ui:insert>
+                            </div>
+                        </div>
+                        <div class="fundo1">
+                        </div>
+                    </div>
+                </div>
+                <div id="baixo">
+                </div>
+
+            </p>
+
+        </f:view> 
+
+    </h:body>
+
+</html>

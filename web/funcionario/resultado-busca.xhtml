@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form> 
+
+                <p:growl id="form1" showDetail="true"/> 
+                <p:dataTable id="funcionario" emptyMessage="Não Foram Encontrados Registros" value="${MbFuncionario.funcionarios}"
+                             var="funcionario" >
+
+
+                    <p:column headerText="Matricula">  
+                        <h:outputText value="${funcionario.matricula}" id="matricula" />
+                    </p:column>
+
+                    
+                    <p:column headerText="Nome">  
+                        <h:outputText value="${funcionario.nome}" id="nome" />
+                    </p:column>
+
+                    
+                    
+                    <p:column headerText="Departamento" >
+                        <h:outputText value="#{funcionario.departamento.nomedepto}" id="nomedepto"/>
+                        <h:outputText value="#{funcionario.departamento.coddepto}" />
+                    </p:column>
+
+
+
+                    <p:column headerText="Setor" >          
+                        <h:outputText value="#{funcionario.setor.nomesetor}" id="nomesetor" />
+                        <h:outputText value="#{funcionario.setor.codsetor}" />
+                       </p:column>
+
+
+
+
+                    <p:column headerText="Cargo">
+                        <h:outputText value="${funcionario.cargo}" id="cargo" />
+                       
+                    </p:column>
+
+
+
+
+                    <p:column headerText="Funcão" >
+                        <h:outputText value="${funcionario.funcao}" id="funcao" />
+                       
+                       </p:column>
+
+
+
+
+                    <p:column headerText="E-mail" >
+                        <h:outputText value="${funcionario.email}" id="email"  />
+                       
+                    </p:column>
+
+
+                    <p:column headerText="Carga Horaria">
+                        <h:outputText value="#{funcionario.cargahoraria}" id="cargahoraria" />
+                    </p:column>
+
+
+
+                    <p:column headerText="Status" >
+                        
+
+                        <h:outputText value="${funcionario.funcionarioStatus.status}" id="status" />
+
+
+                    </p:column>
+
+
+
+
+                    
+
+
+
+
+
+                </p:dataTable>
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+
+
+</html>
+
+

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+
+        <title>Listagem de Epis</title>
+
+    </h:head>
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+
+                <div align="center">
+
+                    <p:growl id="form1" showDetail="true"/> 
+
+                    <p:dataTable id="epi" emptyMessage="Não Foram Encontrados Registros" value="${MBepi.listaEpi}"
+                                 var="epi"  resizableColumns="true"  paginator="true" rows="7" >
+
+                        <p:column headerText="C.A"  filterBy="${epi.ca}">
+
+                            <h:outputText value="${epi.ca}" />
+
+                        </p:column>
+
+                        <p:column  headerText="Nome" filterBy="${epi.nomeepi}">  
+
+                            <h:outputText value="${epi.nomeepi}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column  headerText="Proteção">  
+
+                            <h:outputText value="${epi.epiprotege}" />
+
+                        </p:column>
+
+
+
+                         
+                        <p:column  headerText="Origem">  
+
+                            <h:outputText value="${epi.origemepi}" />
+
+                        </p:column>
+
+                        
+
+                        <p:column  headerText="Estoque">  
+
+                            <h:outputText value="${epi.quantidade}" />
+
+                        </p:column>
+                        
+                        <p:column  headerText="Minimo">  
+
+                            <h:outputText value="${epi.quantminima}" />
+
+                        </p:column>
+                        
+                        
+                        
+                        <p:column  headerText="Valor">  
+
+                         R$    <h:outputText value="${epi.valorunitario}" /> 
+
+                        </p:column>
+                        
+                        
+                        <p:column  headerText="Tamanho">  
+
+                            <h:outputText value="${epi.tamanho}" />
+
+                        </p:column>
+                        
+                        
+                        
+                        <p:column  headerText="Validade">  
+
+                            <h:outputText value="${epi.validadeca}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+
+                        </p:column>
+                        
+
+                                                
+                        <p:column  headerText="Descrição">  
+
+                            <h:outputText value="${epi.descricaoepi}" />
+
+                        </p:column>
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        
+
+                        <p:column  headerText="Alterar">  
+
+                            <p:commandButton action="${MBepi.preparaAlterar}" value="Altera" ajax="false"></p:commandButton>
+
+                        </p:column>
+
+                        <p:column  headerText="Remover">  
+
+                            <p:commandButton action="${MBepi.preparaRemove}" value="Remove" ajax="false"></p:commandButton>
+
+                        </p:column>
+
+                    </p:dataTable>
+
+                </div>
+
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

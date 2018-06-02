@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <h:head>
+
+        <title>Relatório de Epi</title>
+
+    </h:head>
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+
+                <div align="center">
+
+                    <p:growl id="form1" showDetail="true"/> 
+
+                    <p:dataTable id="epi" emptyMessage="Não Foram Encontrados Registros" value="${MBepi.listaEpi}"
+                                 var="epi"  resizableColumns="true" paginator="true" rows="15" >
+                        <p:column headerText="C.A"  filterBy="${epi.ca}">
+
+                            <h:outputText value="${epi.ca}" />
+
+                        </p:column>
+
+                        <p:column  headerText="Nome" filterBy="${epi.nomeepi}">  
+
+                            <h:outputText value="${epi.nomeepi}" />
+
+                        </p:column>
+
+
+
+
+                        <p:column  headerText="Proteção" filterBy="${epi.epiprotege}">  
+
+                            <h:outputText value="${epi.epiprotege}" />
+
+                        </p:column>
+
+
+
+                         
+                        <p:column  headerText="Origem" filterBy="${epi.origemepi}">  
+
+                            <h:outputText value="${epi.origemepi}" />
+
+                        </p:column>
+
+                        
+
+                        <p:column  headerText="Estoque" filterBy="${epi.quantidade}">  
+
+                            <h:outputText value="${epi.quantidade}" />
+
+                        </p:column>
+                        
+                        <p:column  headerText="Minimo" filterBy="${epi.quantminima}">  
+
+                            <h:outputText value="${epi.quantminima}" />
+
+                        </p:column>
+                        
+                        
+                        
+                        <p:column  headerText="Valor" filterBy="${epi.valorunitario}">  
+
+                         R$    <h:outputText value="${epi.valorunitario}" /> 
+
+                        </p:column>
+                        
+                        
+                        <p:column  headerText="Tamanho" filterBy="${epi.tamanho}">  
+
+                            <h:outputText value="${epi.tamanho}" />
+
+                        </p:column>
+                        
+                        
+                        
+                        <p:column  headerText="Validade" filterBy="${epi.validadeca}">  
+
+                            <h:outputText value="${epi.validadeca}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+
+                        </p:column>
+                        
+
+                                                
+                        <p:column  headerText="Descrição" filterBy="${epi.descricaoepi}">  
+
+                            <h:outputText value="${epi.descricaoepi}" />
+
+                        </p:column>
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        
+
+                    </p:dataTable>
+
+                    <p:panel header="Exportar Conteudo">  
+
+                        <h:commandLink>  
+
+                            <p:graphicImage value="excel.png" />  
+
+                            <p:dataExporter type="xls" target="epi" fileName="epi" encoding="iso-8859-1" />  
+
+                        </h:commandLink>  
+
+
+                        <h:commandLink>  
+
+                            <p:graphicImage value="pdf.png" />  
+
+                            <p:dataExporter type="pdf" target="epi" fileName="epi " encoding="iso-8859-1" />  
+
+                        </h:commandLink>  
+
+
+                        <h:commandLink>  
+
+                            <p:graphicImage value="csv.png" />  
+
+                            <p:dataExporter type="csv" target="epi" fileName="epi" pageOnly="true" encoding="iso-8859-1"/>  
+
+                        </h:commandLink>  
+
+                        <h:commandLink>  
+
+                            <p:graphicImage value="xml.png"  />  
+
+                            <p:dataExporter type="xml" target="epi" fileName="epi"  encoding="iso-8859-1" />  
+
+                        </h:commandLink>  
+
+                    </p:panel>  
+
+                </div>
+
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

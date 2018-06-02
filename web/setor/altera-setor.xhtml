@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form>
+
+                <p:growl id="form1" showDetail="true"/> 
+
+
+
+
+
+                <p:panel header="Alteração de Setor" style="margin-bottom:10px;">
+
+
+
+                    <h:panelGrid columns="4">
+
+                        <h:outputLabel for="nomesetor"  value="Nome: "></h:outputLabel>
+                        <p:inputText value="${Mbsetor.setor.nomesetor}" id="nomesetor" required="true" requiredMessage="Campo obrigatório" />
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="nometooltip" style="cursor: help;"/>
+
+                        <p:message for="nomesetor"></p:message>
+
+
+                        <h:outputLabel for="localsetor"  value="Local: "></h:outputLabel>
+                        <p:inputText value="${Mbsetor.setor.localsetor}" id="localsetor" required="true" requiredMessage="Campo obrigatório" />
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="localtooltip" style="cursor: help;"/>
+
+
+                        <p:message for="localsetor"></p:message>
+                        <h:outputText value="Departamento:"></h:outputText>
+                        <p:selectOneMenu value="#{Mbsetor.departamento.coddepto}" id="coddepto" required="true" requiredMessage="Campo obrigatório">
+                        
+                         <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+                            <f:selectItems value="#{MbDepartamento.listaDepartamento}" id="nomedepto"/>
+                        </p:selectOneMenu>
+
+                        <h:graphicImage url="../resources/css/imagens/Informacao_icone.png" id="deptotooltip" style="cursor: help;"/>
+
+                        <p:message for="coddepto"></p:message>
+
+
+
+
+                    </h:panelGrid>
+
+
+
+                    <div style="padding-left: 300px;">
+                        <p:commandButton action="${Mbsetor.alteraSetor()}"  value="Confirma" ajax="false" id="cadastra"  ></p:commandButton>
+                        <p:commandButton type="button"  value="Cancela" onclick="javascript:location.reload(true)" ajax="false" id="limpa"  ></p:commandButton>
+                    </div>
+
+
+                </p:panel>
+
+
+
+
+
+
+
+                <p:messages for="form1"></p:messages>
+                <h:inputHidden value="${Mbsetor.setor.codsetor}"/>
+                <p:tooltip for="nometooltip" value="Informe com o nome do setor Ex: Quimica" showEffect="fade" hideEffect="fade" />
+                <p:tooltip for="localtooltip" value="Informe o local do setor Ex: Leme" showEffect="fade" hideEffect="fade" />  
+                <p:tooltip for="deptotooltip" value="Selecione  o departamento Ex: Quimica" showEffect="fade" hideEffect="fade" />  
+
+
+
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+
+
+
+</html>
+
